@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2D R-Z Fourier Boundary Visualizer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+       body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #61dafb;
+        }
+        h5 {
+            margin-top: 1px;
+            margin-bottom: 1px;
+            font-size: 1em;
+        }
+        p {
+            font-size: 0.9em;
+            color: #a8a8a8;
+        }
+        canvas {
+            border: 1px solid #61dafb;
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #61dafb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #21a1f1;
+        }
+        .layout {
+            display: grid;
+            grid-template-rows: repeat(4, auto);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 50%;
+        }
+        .slidecontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #61dafb;
+            outline: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            border-radius: 5px;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>2D R-Z Fourier Boundary Visualizer</h1>
+    <section class="layout">
+        <div class="slidecontainer">
+            <h5 id="r0Text">r0</h5>
+            <input type="range" min="0" max="100" value="100" class="slider" id="r0">
+        </div>
+        <div>
+            <h5 id="z0Text">z0</h5>
+            <p>z0 does not matter, since sine of 0 is zero</p>
+        </div>
+        <div class="slidecontainer">
+            <h5 id="r1Text">r1</h5>
+            <input type="range" min="0" max="100" value="50" class="slider" id="r1">
+        </div>
+        <div class="slidecontainer">
+            <h5 id="z1Text">z1</h5>
+            <input type="range" min="0" max="100" value="50" class="slider" id="z1">
+        </div>
+        <div class="slidecontainer">
+            <h5 id="r2Text">r2</h5>
+            <input type="range" min="0" max="100" value="50" class="slider" id="r2">
+        </div>
+        <div class="slidecontainer">
+            <h5 id="z2Text">z2</h5>
+            <input type="range" min="0" max="100" value="50" class="slider" id="z2">
+        </div>
+        <div class="slidecontainer">
+            <h5 id="r3Text">r3</h5>
+            <input type="range" min="0" max="100" value="50" class="slider" id="r3">
+        </div>
+        <div class="slidecontainer">
+            <h5 id="z3Text">z3</h5>
+            <input type="range" min="0" max="100" value="50" class="slider" id="z3">
+        </div>
+      </section>
+      <button onclick="resetBoundary()">Reset Boundary</button>
+    
+    <div>
+        <p id="props">t=3</p>
+    </div>
+    <script src="sketch.js"></script>
+    
+    
+</body>
+</html>
